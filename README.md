@@ -11,7 +11,7 @@ Cool. You saved $1.57 by going to the store that's a little cheaper than the oth
 It's not on rubygems yet, but you can install the gem by downloading the source and typing
 
     $ gem build beans.gemspec
-    $ gem install beans
+    $ gem install beans-0.1a
 
 ### Configuration
 
