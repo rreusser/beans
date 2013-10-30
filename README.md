@@ -2,13 +2,13 @@
 
 ### What is your time actually worth?
 
-Cool. You saved $1.57 by going to the store that's a little cheaper. And then you found a quarter at the cash register. That's really great. How many quarters did you spend telling your co-worker about it? I mean let's not obsess over it or anything, but it might be good to at least know.
+Cool. You saved $1.57 by going to the store that's a little cheaper than the other store. And then you found a quarter at the cash register. That's really great. How many quarters did you spend telling your co-worker about it? I mean let's not obsess over it or anything, but it might be good to at least know.
 
 `beans` is a simple command line tool to help you understand the value of your time. With Growl notifications just to be sure you get the point.
 
 ### Installation
 
-It's not on rubygems right now, but you can install the gem by downloading the source and typing
+It's not on rubygems yet, but you can install the gem by downloading the source and typing
 
     $ gem build beans.gemspec
     $ gem install beans
@@ -30,7 +30,7 @@ To start counting beans, simply type
 
     $ beans
 
-That's kinda stupid though. Who wants to dedicate a terminal window to a one-line utility. To daemonize a bean counter, just type
+That's kinda silly. Who wants to dedicate a terminal window to a single number? To daemonize a bean counter, just type
 
     $ beans start
 
