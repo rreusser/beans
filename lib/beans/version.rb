@@ -1,9 +1,9 @@
-module T2M
+module Beans
   VERSION = "0.1a"
 
   class << self
     def version
-      T2M::VERSION.dup
+      Beans::VERSION.dup
     end 
   end 
 

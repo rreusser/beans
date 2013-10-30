@@ -1,14 +1,16 @@
 PATH
   remote: .
   specs:
-    dollar_stopwatch (0.1a)
+    beans (0.1a)
+      daemons
 
 GEM
   remote: http://rubygems.org/
   specs:
+    daemons (1.0.10)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  dollar_stopwatch!
+  beans!

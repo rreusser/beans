@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+
+require 'beans'
+require 'daemons'
+
+if ARGV.length==0
+
+  s = Beans::BeanCounter.new
+  $stdout.printf "$%.02f\n", s.query.to_f
+
+elsif ARGV.include? '-f'
+
+  begin
+
+    s = Beans::BeanCounter.new
+
+    while true do
+      $stdout.printf "\r$%.02f", s.query.to_f
+      sleep(0.25)
+    end
+
+  rescue Interrupt
+    $stdout.printf "\n"
+
+  rescue Errno::EPIPE
+    $stderr.printf "\nLost connection with bean server!\n"
+
+  end
+
+
+else
+  Daemons.run('bin/bean_server')
+end
