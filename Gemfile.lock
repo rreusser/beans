@@ -1,0 +1,14 @@
+PATH
+  remote: .
+  specs:
+    dollar_stopwatch (0.1a)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  dollar_stopwatch!
