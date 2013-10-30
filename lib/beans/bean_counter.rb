@@ -4,12 +4,7 @@ module Beans
     def initialize(opts={})
       opts[:port] ||= Config.port
 
-      begin
-        @socket = TCPSocket.new('127.0.0.1', opts[:port])
-      rescue Errno::ECONNREFUSED
-        $stderr.puts "Unable to connect to bean server! Are you sure it's running on port #{Beans::Config.port}?"
-        exit
-      end
+      @socket = TCPSocket.new('127.0.0.1', opts[:port])
 
     end
 

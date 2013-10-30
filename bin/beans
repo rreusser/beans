@@ -5,8 +5,24 @@ require 'daemons'
 
 if ARGV.length==0
 
-  s = Beans::BeanCounter.new
-  $stdout.printf "$%.02f\n", s.query.to_f
+  begin
+    s = Beans::BeanCounter.new
+    $stdout.printf "$%.02f\n", s.query.to_f
+
+  rescue Errno::ECONNREFUSED
+    begin
+      # Presumably there's no server running, so let's just count some beans.
+      s = Beans::Stopwatch.new
+
+      while true do
+        $stdout.printf "\r$%.02f", s.query('dollars')
+        sleep(0.25)
+      end
+    rescue Interrupt
+      $stdout.printf "\n"
+    end
+  end
+
 
 elsif ARGV.include? '-f'
 
@@ -21,6 +37,9 @@ elsif ARGV.include? '-f'
 
   rescue Interrupt
     $stdout.printf "\n"
+
+  rescue Errno::ECONNREFUSED
+    $stderr.puts "Unable to connect to bean server! Are you sure it's running on port #{Beans::Config.port}?"
 
   rescue Errno::EPIPE
     $stderr.printf "\nLost connection with bean server!\n"
