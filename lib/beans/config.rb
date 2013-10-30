@@ -41,6 +41,10 @@ module Beans
         salary_per_year / weeks_per_year / seconds_per_week
       end
 
+      def seconds_between_notifications
+        config['notify_every'] || 5
+      end
+
     end
 
   end

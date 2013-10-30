@@ -3,14 +3,19 @@ module Beans
 
     def initialize(opts={})
       opts[:port] ||= Config.port
-
-      @socket = TCPSocket.new('127.0.0.1', opts[:port])
-
+      @port = opts[:port]
+    end
+  
+    def open
+      @socket = TCPSocket.new('127.0.0.1', @port)
     end
 
     def query
+      self.open
       @socket.puts "dollars"
-      @socket.gets
+      response = @socket.gets
+      self.close
+      response
     end
 
     def close

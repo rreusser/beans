@@ -3,11 +3,19 @@ PATH
   specs:
     beans (0.1a)
       daemons
+      ruby-growl
 
 GEM
   remote: http://rubygems.org/
   specs:
-    daemons (1.0.10)
+    daemons (1.1.9)
+    macaddr (1.6.1)
+      systemu (~> 2.5.0)
+    ruby-growl (4.0)
+      uuid (~> 2.3, >= 2.3.5)
+    systemu (2.5.2)
+    uuid (2.3.7)
+      macaddr (~> 1.0)
 
 PLATFORMS
   ruby

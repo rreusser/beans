@@ -3,4 +3,5 @@
 require 'beans'
 
 bs = Beans::BeanServer.new
+bs.notify
 bs.listen

@@ -24,7 +24,7 @@ if ARGV.length==0
   end
 
 
-elsif ARGV.include? '-f'
+elsif ARGV.include? '-t'
 
   begin
 
@@ -39,14 +39,14 @@ elsif ARGV.include? '-f'
     $stdout.printf "\n"
 
   rescue Errno::ECONNREFUSED
-    $stderr.puts "Unable to connect to bean server! Are you sure it's running on port #{Beans::Config.port}?"
+    $stderr.puts "Unable to connect to beans server! Are you sure it's running on port #{Beans::Config.port}?"
 
   rescue Errno::EPIPE
-    $stderr.printf "\nLost connection with bean server!\n"
+    $stderr.printf "\nLost connection with beans server!\n"
 
   end
 
 
 else
-  Daemons.run('bin/bean_server')
+  Daemons.run('bin/beans-server')
 end
