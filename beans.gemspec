@@ -8,10 +8,10 @@ Gem::Specification.new do |s|
   s.name        = "beans"
   s.version     = Beans::VERSION
   s.authors     = ["Ricky Reusser"]
-  s.email       = ["ricky@happyfuncorp.com"]
-  s.homepage    = "http://happyfuncorp.com"
-  s.summary     = "What is your time actually worth"
-  s.description = "Converts time to money."
+  s.email       = ["rsreusser@gmail.com"]
+  s.homepage    = "https://github.com/rreusser/beans"
+  s.summary     = "A small utility to convert time (yours) to money (theirs)"
+  s.description = "A daemonized stopwatch with growl notifications so you don't forget."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["Rakefile"]
   s.test_files = Dir["test/**/*"]
