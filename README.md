@@ -54,6 +54,6 @@ Kill or restart the daemon, respectively, with
 
 And you can run the server in the foreground with
 
-    $ bean_server
+    $ beans-server
 
 But why would anyone do that?
