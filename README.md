@@ -4,7 +4,7 @@
 
 Cool. You refactored someone's code into a totally killer feature that's gonna bump sales just a smidge. And then you went to lunch and found a quarter at the cash register. That's really great, but how many quarters did it cost to tell your co-worker about all this? I mean let's not obsess over it or anything, but it might be good to know.
 
-`beans` is a simple command line tool to help you understand the value of your time. With Growl notifications just to be sure you don't forget what your time is worth.
+`beans` is a simple command line tool to help you understand the value of your time. It's a daemonized stopwatch that measures time in units of dollars and uses Growl notifications to periodically remind you what you're worth.
 
 ### Installation
 
