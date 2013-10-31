@@ -15,8 +15,10 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["Rakefile"]
   s.test_files = Dir["test/**/*"]
+
   s.executables << 'beans'
   s.executables << 'beans-server'
+  s.executables << 'beansd'
 
   s.add_dependency "daemons"
   s.add_dependency 'ruby-growl'

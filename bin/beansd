@@ -1,0 +1,7 @@
+#!/usr/bin/env/ruby
+#
+BINDIR=File.dirname(__FILE__)
+
+require 'daemons'
+
+Daemons.run(File.join(BINDIR,'beans-server'))

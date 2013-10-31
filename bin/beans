@@ -1,8 +1,6 @@
 #!/usr/bin/env ruby
-BINDIR=File.dirname(__FILE__)
 
 require 'beans'
-require 'daemons'
 
 if ARGV.length==0
 
@@ -14,6 +12,7 @@ if ARGV.length==0
     begin
       # Presumably there's no server running, so let's just count some beans.
       s = Beans::Stopwatch.new
+      s.start
 
       while true do
         $stdout.printf "\r$%.02f", s.query('dollars')
@@ -47,7 +46,14 @@ elsif ARGV.include? '-t'
 
   end
 
-
 else
-  Daemons.run(File.join(BINDIR,'beans-server'))
+
+  s = Beans::BeanCounter.new
+  case ARGV[0].strip.downcase
+    when 'start'
+      s.query('start')
+    when 'stop'
+      s.query('stop')
+  end
+
 end

@@ -1,15 +1,58 @@
 module Beans
   class Stopwatch
 
-    attr_reader :t0
-
     def initialize
-      @t0 = Time.now
-      @last_notification_at = Time.now
+      t = Time.now
+      @last_notification_at = t
+      @previously_elapsed_time = 0.0
+
+      @last_stopped_at = t
+      @last_started_at = nil
+
+      @running = false
+    end
+
+    def start
+      if stopped?
+        t = Time.now
+
+        @first_started_at ||= t
+
+        @last_started_at = t
+        @running = true
+
+      end
+    end
+
+    def stop
+      if running?
+        t = Time.now
+
+        @previously_elapsed_time ||= 0
+        @previously_elapsed_time += (t-@last_started_at).to_f
+
+        @last_stopped_at = t
+        @running = false
+
+      end
+    end
+
+    def stopped?
+      !@running
+    end
+
+    def running?
+      @running
     end
 
     def seconds_elapsed
-      Time.now.to_f - @t0.to_f
+      if @last_started_at.nil?
+        0.0
+      else
+        s = @previously_elapsed_time
+        s += (Time.now-@last_started_at).to_f unless stopped?
+        s
+      end
     end
 
     def minutes_elapsed

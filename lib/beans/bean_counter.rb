@@ -10,9 +10,9 @@ module Beans
       @socket = TCPSocket.new('127.0.0.1', @port)
     end
 
-    def query
+    def query( query='dollars' )
       self.open
-      @socket.puts "dollars"
+      @socket.puts query
       response = @socket.gets
       self.close
       response

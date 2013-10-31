@@ -28,8 +28,23 @@ module Beans
       # Server loop:
       loop do
         Thread.start(@server.accept) do |client|
-          client.puts @stopwatch.query(client.gets)
-          client.close
+          begin
+            q = client.gets.strip
+            case q.downcase
+              when 'start'
+                @stopwatch.start
+                client.puts 'success'
+              when 'stop'
+                @stopwatch.stop
+                client.puts 'success'
+              else
+                client.puts @stopwatch.query(q)
+            end
+            client.close
+          rescue StandardError => e
+            $stderr.puts "#{e.exception}: #{e.message}"
+            $stderr.puts e.backtrace
+          end
         end
       end
 
