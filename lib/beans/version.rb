@@ -1,5 +1,5 @@
 module Beans
-  VERSION = "0.1a"
+  VERSION = "0.2"
 
   class << self
     def version
