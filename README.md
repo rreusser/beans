@@ -2,9 +2,9 @@
 
 ### What is your time actually worth?
 
-Cool. You saved $1.57 by going to the store that's a little cheaper than the other store. And then you found a quarter at the cash register. That's really great. How many quarters did you spend telling your co-worker about it? I mean let's not obsess over it or anything, but it might be good to at least know.
+Cool. You refactored someone's code into a totally killer feature that's gonna bump sales just a smidge. And then you went to lunch and found a quarter at the cash register. That's really great, but how many quarters did it cost to tell your co-worker about it? I mean let's not obsess over it or anything, but it might be good to know.
 
-`beans` is a simple command line tool to help you understand the value of your time. With Growl notifications just to be sure you get the point.
+`beans` is a simple command line tool to help you understand the value of your time. With Growl notifications just to be sure you don't forget what your time is worth.
 
 ### Installation
 
