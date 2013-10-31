@@ -2,13 +2,16 @@ module Beans
   class Stopwatch
 
     def initialize
+      self.reset
+    end
+
+    def reset
       t = Time.now
+      @first_started_at = nil
       @last_notification_at = t
       @previously_elapsed_time = 0.0
-
       @last_stopped_at = t
       @last_started_at = nil
-
       @running = false
     end
 
@@ -36,6 +39,7 @@ module Beans
 
       end
     end
+
 
     def stopped?
       !@running

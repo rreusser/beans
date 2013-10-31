@@ -43,6 +43,9 @@ module Beans
               when 'stop'
                 @stopwatch.stop
                 client.puts 'success'
+              when 'reset'
+                @stopwatch.reset
+                client.puts 'success'
               else
                 client.puts @stopwatch.query(q)
             end

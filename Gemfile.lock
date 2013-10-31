@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    beans (0.1a)
+    beans (0.2)
       daemons
       ruby-growl
 
