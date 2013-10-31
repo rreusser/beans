@@ -18,8 +18,14 @@ module Beans
       # Notification loop:
       Thread.start do
         loop do
-          sleep(@stopwatch.seconds_to_next_notification+0.1)
-          @stopwatch.notify
+          begin
+            sleep(@stopwatch.seconds_to_next_notification+0.1)
+            @stopwatch.notify
+          rescue Exception=>e
+            $stderr.puts e.exception
+            $stderr.puts e.message
+            $stderr.puts e.backtrace
+          end
         end
       end
     end

@@ -83,11 +83,25 @@ module Beans
       next_notification_at - Time.now
     end
 
+    def nice_elapsed_time
+      if (s=seconds_elapsed) < 60
+        "#{sprintf("%i",s)} seconds"
+      elsif (m=minutes_elapsed) < 60
+        "#{sprintf("%i",m)} minutes"
+      elsif (h=hours_elapsed) < 24
+        "#{sprintf("%.1f",h)} hours"
+      else
+        "#{sprintf("%.1f",days_elapsed)} days"
+      end
+    end
+        
+
     def notify
       @last_notification_at = Time.now
+      return false if @first_started_at.nil?
       Beans::Notification.new(
         sprintf( "$%.02f", dollars_elapsed),
-        "since #{@t0.strftime( "%-I:%M %p")} today"
+        "over #{nice_elapsed_time} since #{@first_started_at.strftime( "%-I:%M %p")}"
       )
     end
 
