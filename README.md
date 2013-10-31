@@ -30,11 +30,16 @@ To start counting beans, simply type
 
     $ beans
 
-That's kinda silly. Who wants to dedicate a terminal window to a single number? To daemonize a bean counter, just type
+But that's kinda silly. Who wants to dedicate a terminal window to a single number? To daemonize a bean counter, just type
+
+    $ beansd start
+
+Then you can start and stop the counter with
 
     $ beans start
+    $ beans stop
 
-When a daemonized counter is running, you can check your beans with
+and query the current value with
 
     $ beans
 
@@ -42,12 +47,13 @@ or watch the beans tick by with
 
     $ beans -t
 
-Of course you can kill the counter or restart it, respectively, with
+Kill or restart the daemon, respectively, with
 
-    $ beans stop
-    $ beans restart
+    $ beansd stop
+    $ beansd restart
 
 And you can run the server in the foreground with
 
     $ bean_server
 
+But why would anyone do that?
