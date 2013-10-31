@@ -101,7 +101,7 @@ module Beans
       return false if @first_started_at.nil?
       Beans::Notification.new(
         sprintf( "$%.02f", dollars_elapsed),
-        "over #{nice_elapsed_time} since #{@first_started_at.strftime( "%-I:%M %p")}. Hope you're worth it."
+        "over #{nice_elapsed_time} since #{@first_started_at.strftime( "%-I:%M %p")}."
       )
     end
 
