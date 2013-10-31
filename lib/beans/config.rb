@@ -42,7 +42,7 @@ module Beans
       end
 
       def seconds_between_notifications
-        config['notify_every'] || 5
+        config['notify_every'] || 1800
       end
 
     end

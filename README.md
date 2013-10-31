@@ -8,21 +8,18 @@ Cool. You refactored someone's code into a totally killer feature that's gonna b
 
 ### Installation
 
-It's not on rubygems yet, but you can install the gem by downloading the source and typing
-
-    $ gem build beans.gemspec
-    $ gem install beans-0.1a
+    $ gem install beans --pre
 
 ### Configuration
 
-Configuration is specified in `~/.beans.yml`. For example:
+Configuration must be specified in `~/.beans.yml`. Port and notification interval are optional. For example:
 
     # beans.yml:
     salary: 50000
     per: year
     hours_per_week: 40
-    port: 7878
     notify_every: 600
+    port: 7878
 
 ### Usage
 
@@ -46,6 +43,11 @@ and query the current value with
 or watch the beans tick by with
 
     $ beans -t
+
+Remember: you waste twice as much money when you talk to someone. Are you talking to someone. Use the `-n` flag:
+
+    $ beans -n 2
+    $ beans -n 2 -t
 
 Kill or restart the daemon, respectively, with
 

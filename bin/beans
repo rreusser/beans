@@ -2,37 +2,26 @@
 
 require 'beans'
 
-if ARGV.length==0
+if ARGV.include? '-n'
+  multiplier = ARGV[ARGV.index('-n')+1].to_f
+end
+multiplier ||= 1.0
 
-  begin
-    s = Beans::BeanCounter.new
-    $stdout.printf "$%.02f\n", s.query.to_f
-
-  rescue Errno::ECONNREFUSED
-    begin
-      # Presumably there's no server running, so let's just count some beans.
-      s = Beans::Stopwatch.new
-      s.start
-
-      while true do
-        $stdout.printf "\r$%.02f", s.query('dollars')
-        sleep(0.25)
-      end
-    rescue Interrupt
-      $stdout.printf "\n"
-    end
-  end
+if ARGV.include? '-i'
+  interval = ARGV[ARGV.index('-i')+1].to_f
+end
+interval ||= 0.25
 
 
-elsif ARGV.include? '-t'
+if ARGV.include? '-t'
 
   begin
 
     s = Beans::BeanCounter.new
 
     while true do
-      $stdout.printf "\r$%.02f", s.query.to_f
-      sleep(0.25)
+      $stdout.printf "\r$%.02f", s.query.to_f*multiplier
+      sleep(interval)
     end
 
   rescue Interrupt
@@ -46,7 +35,7 @@ elsif ARGV.include? '-t'
 
   end
 
-else
+elsif ARGV.include? 'start' or ARGV.include? 'stop'
 
   s = Beans::BeanCounter.new
   case ARGV[0].strip.downcase
@@ -54,6 +43,27 @@ else
       s.query('start')
     when 'stop'
       s.query('stop')
+  end
+
+else
+
+  begin
+    s = Beans::BeanCounter.new
+    $stdout.printf "$%.02f\n", s.query.to_f
+
+  rescue Errno::ECONNREFUSED
+    begin
+      # Presumably there's no server running, so let's just count some beans.
+      s = Beans::Stopwatch.new
+      s.start
+
+      while true do
+        $stdout.printf "\r$%.02f", s.query('dollars')*multiplier
+        sleep(interval)
+      end
+    rescue Interrupt
+      $stdout.printf "\n"
+    end
   end
 
 end
