@@ -47,7 +47,7 @@ or watch the beans tick by with
 
     $ beans -t
 
-Remember: you waste twice as much money when you talk to someone. Are you talking to someone. Use the `-n` flag:
+Remember: you waste twice as much money when you talk to someone. Are you talking to someone? Stop that. Or at least use the `-n` flag:
 
     $ beans -n 2
     $ beans -n 2 -t
