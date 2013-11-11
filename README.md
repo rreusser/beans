@@ -8,10 +8,9 @@ Cool. You refactored someone's code into a totally killer feature that's gonna b
 
 ### Installation
 
-Update: Pushed it to rubygems.org, but that seems like a waste of global namespace. In other words, it got downloaded a few times, probably either automatically or beacuase it was confused with something else. Yanked it, so for now you'll just have to download the repo and install it yourself.
+Unnecessary use of global namespace? Probably.
 
-    $ gem build beans.gemspec
-    $ gem install beans-0.2
+    $ gem install beans
 
 ### Configuration
 
